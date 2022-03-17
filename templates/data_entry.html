@@ -6,6 +6,10 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/BMI_logo.svg" id="icon" alt="User Icon" />
             </div>
 
+            <div>
+                {{text | safe}}
+            </div>
+
             <form action="{{url_for('success')}}" method="POST">
                 <input type="text" id="Email" class="fadeIn second" name="email" placeholder="Email address">
                 <input type="text" id="Height" class="fadeIn third" name="height" placeholder="Height (in cm)">
