@@ -1,10 +1,8 @@
 from smtplib import SMTP
 from email.mime.text import MIMEText
-from secrets import username, password
+from secret_info import password, username
 
 def send_mail(email, height, weight):
-    sender_email=username
-    sender_password=password
     receiver_email=email
 
     subject="Your BMI"
@@ -14,10 +12,11 @@ def send_mail(email, height, weight):
 
     msg['Subject']=subject
     msg['To']=receiver_email
-    msg['From']=sender_email
+    msg['From']=username
 
     gmail=SMTP('smtp.gmail.com',587)
     gmail.ehlo()
     gmail.starttls()
-    gmail.login(sender_email, sender_password)
+    gmail.ehlo()
+    gmail.login(username, password)
     gmail.send_message(msg)

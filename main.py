@@ -34,7 +34,7 @@ def success():
         weight = request.form["weight"]
 
         data1 = Data(email, weight, height)
-        # send_mail(email, int(height), int(weight))
+        send_mail(email, int(height), int(weight))
         try:
             db.session.add(data1)
             db.session.commit()
